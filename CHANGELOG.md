@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [WiP marchefter](https://github.com/docker-mailserver/docker-mailserver/compare/master...march42:docker-mailserver:ldap-wip)
+
+> **Note**: Changes and additions listed here are contained in the `:ldap-wip` image tag.
+
+### Added
+
+- **Dovecot:**
+  - read password `LDAP_BIND_PW` from file `LDAP_BIND_PW_FILE` in `ldap.sh` file
+  - read password `LDAP_BIND_PW` from file `LDAP_BIND_PW_FILE` in `saslauthd.sh` file
+  - add `LDAP_BIND_PW_FILE` instead of `LDAP_BIND_PW` to VARS in `variables-stack.sh` file
+
+### Updated
+
+- **Documentation:**
+  - fixed `LDAP_SERVER_HOST` missing URI schema in `ldap.md` file
+  - fixed `LDAP_SERVER_HOST` missing URI schema in `basic-installation.md` file
+  - fixed `SASLAUTHD_LDAP_SERVER` missing URI schema in `basic-installation.md` file
+  - fixed `LDAP_SERVER_HOST` missing URI schema in `forward-only-mailserver-with-ldap-authentication.md` file
+  - fixed `SASLAUTHD_LDAP_SERVER` missing URI schema in `forward-only-mailserver-with-ldap-authentication.md` file
+
 ## [Unreleased](https://github.com/docker-mailserver/docker-mailserver/compare/v15.1.0...HEAD)
 
 > **Note**: Changes and additions listed here are contained in the `:edge` image tag. These changes may not be as stable as released changes.

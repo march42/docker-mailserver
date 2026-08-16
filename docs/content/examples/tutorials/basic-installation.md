@@ -57,7 +57,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     environment:
       - ACCOUNT_PROVISIONER=LDAP
-      - LDAP_SERVER_HOST=ldap # your ldap container/IP/ServerName
+      - LDAP_SERVER_HOST=ldap://ldap # your ldap container/IP/ServerName
       - LDAP_SEARCH_BASE=ou=people,dc=localhost,dc=localdomain
       - LDAP_BIND_DN=cn=admin,dc=localhost,dc=localdomain
       - LDAP_BIND_PW=admin
@@ -69,7 +69,7 @@ services:
       - DOVECOT_USER_FILTER=(&(objectClass=PostfixBookMailAccount)(uniqueIdentifier=%n))
       - ENABLE_SASLAUTHD=1
       - SASLAUTHD_MECHANISMS=ldap
-      - SASLAUTHD_LDAP_SERVER=ldap
+      - SASLAUTHD_LDAP_SERVER=ldap://ldap
       - SASLAUTHD_LDAP_BIND_DN=cn=admin,dc=localhost,dc=localdomain
       - SASLAUTHD_LDAP_PASSWORD=admin
       - SASLAUTHD_LDAP_SEARCH_BASE=ou=people,dc=localhost,dc=localdomain

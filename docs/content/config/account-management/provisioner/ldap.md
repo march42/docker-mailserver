@@ -14,6 +14,17 @@ Getting started with ldap and DMS we need to take 3 parts in account:
 
 Have a look at [the ENV page][docs-environment] for information on the default values.
 
+### `LDAP_SERVER_HOST`
+
+Those specifies the space separated list of URIs for LDAP access.
+Must be specified with protocol schema NOT just the hostname.
+
+* `ldap://` or `ldap://localhost` for plain TCP connection default port 389
+* `ldaps://` or `ldaps://localhost` for TLS connection default port 636
+* `ldapi:///` or `ldapi://%2Fvar%2Frun%2Fslapd%2Fldapi` for unix socket connection
+
+`LDAP_SERVER_HOST` can be specified as single hostname. In that case unencrypted `ldap://` protocol is used.
+
 ### `LDAP_QUERY_FILTER_*`
 
 Those variables contain the LDAP lookup filters for postfix, using `%s` as the placeholder for the domain or email address in question. This means that...
@@ -36,7 +47,7 @@ Those variables contain the LDAP lookup filters for postfix, using `%s` as the p
     ```yaml
     - LDAP_START_TLS=yes
     - ACCOUNT_PROVISIONER=LDAP
-    - LDAP_SERVER_HOST=ldap.example.org
+    - LDAP_SERVER_HOST=ldap://ldap.example.org
     - LDAP_SEARCH_BASE=dc=example,dc=org"
     - LDAP_BIND_DN=cn=admin,dc=example,dc=org
     - LDAP_BIND_PW=mypassword
@@ -215,7 +226,7 @@ The changes on the configurations necessary to work with Active Directory (**onl
 
           # >>> Postfix LDAP Integration
           - ACCOUNT_PROVISIONER=LDAP
-          - LDAP_SERVER_HOST=ldap.example.org
+          - LDAP_SERVER_HOST=ldaps://ldap.example.org ldap://ldap.example.org
           - LDAP_BIND_DN=cn=admin,ou=users,dc=example,dc=org
           - LDAP_BIND_PW=mypassword
           - LDAP_SEARCH_BASE=dc=example,dc=org

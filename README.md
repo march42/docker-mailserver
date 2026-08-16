@@ -1,3 +1,20 @@
+# LDAP WiP
+
+__work in progress__
+working on LDAP user account provisioning
+
+- [*] secure alternative: read bind password from LDAP_BIND_PW_FILE instead of environment variable LDAP_BIND_PW
+- [*] minor typo: LDAP_SERVER_HOST is not hostname but URI, make sure the examples are consistent
+- [ ] use generated password LDAP_BIND_PW instead of fixed value `admin` for tests
+
+current image will be
+build with `docker build --tag docker-mailserver:ldap-wip --tag docker-mailserver:testing --push .`
+available for docker as `marchefter/docker-mailserver:ldap-wip`
+
+[Docker repository](https://hub.docker.com/repository/docker/marchefter/docker-mailserver)
+
+build and push with branch name as tag `docker build --tag docker-mailserver:$(git branch --show-current | sed -e "s# #_#g") --push .`
+
 # Docker Mailserver
 
 [![ci::status]][ci::github] [![docker::pulls]][docker::hub] [![documentation::badge]][documentation::web]

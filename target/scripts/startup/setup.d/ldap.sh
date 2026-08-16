@@ -33,6 +33,11 @@ function _setup_ldap() {
 
   _log 'trace' "Configuring Dovecot LDAP"
 
+  if [[ -n "${LDAP_BIND_PW_FILE}" ]]; then
+    LDAP_BIND_PW=$(cat "${LDAP_BIND_PW_FILE}")
+    _log 'info' "Reading Dovecot LDAP password from file ${LDAP_BIND_PW_FILE}"
+  fi
+
   declare -A DOVECOT_LDAP_MAPPING
 
   DOVECOT_LDAP_MAPPING['DOVECOT_BASE']="${DOVECOT_BASE:="${LDAP_SEARCH_BASE}"}"

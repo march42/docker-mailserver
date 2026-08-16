@@ -10,6 +10,11 @@ function _setup_saslauthd() {
   && [[ ! -f /etc/saslauthd.conf ]]; then
     _log 'trace' 'Creating /etc/saslauthd.conf'
 
+    if [[ -n "${LDAP_BIND_PW_FILE}" ]]; then
+      LDAP_BIND_PW=$(cat "${LDAP_BIND_PW_FILE}")
+      _log 'info' "Reading SASLauthd LDAP password from file ${LDAP_BIND_PW_FILE}"
+    fi
+
     # Create a config based on ENV
     sed '/^.*: $/d'> /etc/saslauthd.conf << EOF
 ldap_servers: ${SASLAUTHD_LDAP_SERVER:=${LDAP_SERVER_HOST}}

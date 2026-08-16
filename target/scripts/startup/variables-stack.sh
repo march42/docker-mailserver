@@ -196,7 +196,13 @@ function __environment_variables_ldap() {
   _log 'debug' 'Setting LDAP-related environment variables now'
 
   VARS[LDAP_BIND_DN]="${LDAP_BIND_DN:=}"
-  VARS[LDAP_BIND_PW]="${LDAP_BIND_PW:=}"
+  if [[ -n "${LDAP_BIND_PW_FILE}" ]]; then
+    VARS[LDAP_BIND_PW_FILE]="${LDAP_BIND_PW_FILE:=}"
+    _log 'info' "Reading LDAP password from file ${LDAP_BIND_PW_FILE}"
+  else
+    # set variable, if not read from file
+    VARS[LDAP_BIND_PW]="${LDAP_BIND_PW:=}"
+  fi
   VARS[LDAP_SEARCH_BASE]="${LDAP_SEARCH_BASE:=}"
   VARS[LDAP_SERVER_HOST]="${LDAP_SERVER_HOST:=}"
   VARS[LDAP_START_TLS]="${LDAP_START_TLS:=no}"
