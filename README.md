@@ -3,8 +3,8 @@
 __work in progress__
 working on LDAP user account provisioning
 
-- [*] secure alternative: read bind password from LDAP_BIND_PW_FILE instead of environment variable LDAP_BIND_PW
-- [*] minor typo: LDAP_SERVER_HOST is not hostname but URI, make sure the examples are consistent
+- [x] secure alternative: read bind password from LDAP_BIND_PW_FILE instead of environment variable LDAP_BIND_PW
+- [x] minor typo: LDAP_SERVER_HOST is not hostname but URI, make sure the examples are consistent
 - [ ] use generated password LDAP_BIND_PW instead of fixed value `admin` for tests
 
 current image will be
