@@ -2,9 +2,10 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [WiP marchefter](https://github.com/docker-mailserver/docker-mailserver/compare/master...march42:docker-mailserver:ldap-wip)
+## [WiP marchefter](https://github.com/march42/docker-mailserver/compare/main...ldap-wip)
 
 > **Note**: Changes and additions listed here are contained in the `:ldap-wip` image tag.
+> **Note**: The code is based on main (master) branch and not Release/v15.1.0.
 
 ### Added
 
